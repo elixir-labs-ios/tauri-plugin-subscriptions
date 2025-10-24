@@ -32,11 +32,13 @@ This guide explains how to test the subscription plugin in development and produ
 1. In App Store Connect, go to Users and Access → Sandbox
 2. Click "+" to add a tester
 3. Fill in:
-   - Email (can be fake, e.g., `test1@test.com`)
+   - Email (use a valid email format but doesn't need to be a real working email, e.g., `test1@example.com`)
    - Password
    - First/Last Name
    - Country/Region (must match your app's availability)
 4. Create multiple testers to test different scenarios
+
+**Note:** While the email doesn't need to be a real working address, it must be in a valid email format and unique within your sandbox testers.
 
 #### 3. Configure Your Xcode Project
 
@@ -156,7 +158,11 @@ async function testStatus() {
 
 1. Create a signed APK or AAB:
    ```bash
-   cd src-tauri
+   # Using Tauri CLI (choose the appropriate command for your setup)
+   npx tauri android build
+   # or
+   cargo tauri android build
+   # or if you have tauri in your package.json scripts
    npm run tauri android build
    ```
 2. Upload to Google Play Console → Internal testing
